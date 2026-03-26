@@ -1,0 +1,79 @@
+﻿<Page x:Class="prakt8.pages.startPriem"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:prakt8.pages"
+      xmlns:validators="clr-namespace:prakt8.ValidationRules"
+      xmlns:converters="clr-namespace:prakt8.Converters"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="startPriem">
+    <Page.Resources>
+        <converters:DayConverter x:Key="dayConvert"/>
+        <converters:AgeConverter x:Key="ageConvert"/>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="priemAdd" Grid.Column="0" Style="{DynamicResource spVert}">
+            <Label Content="Диагноз"/>
+            <TextBox>
+                <TextBox.Text>
+                    <Binding Path="Diagnos" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validators:StringValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <Label Content="Рекомендации"/>
+            <TextBox>
+                <TextBox.Text>
+                    <Binding Path="Recomendation" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validators:StringValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <Button x:Name="addPriemBtn" Content="Добавить" Click="addPriemBtn_Click"/>
+            <Button x:Name="exitBtn" Content="Назад" Click="exitBtn_Click"/>
+        </StackPanel>
+
+        <ListView x:Name="lvDc" ItemsSource="{Binding Priems, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Style="{DynamicResource lvp}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Style="{DynamicResource spVert}">
+                        <StackPanel Style="{DynamicResource spHoriz}">
+                            <Label Content="{Binding bday, Converter={StaticResource ageConvert}, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Content=""/>
+                        </StackPanel>
+                        <StackPanel Style="{DynamicResource spHoriz}">
+                            <Label Content="{Binding LastP, Converter={StaticResource dayConvert}, UpdateSourceTrigger=PropertyChanged, StringFormat={}Последний прием {0:dd.MM.yyyy} дней назад}"/>
+                            <Label Content=""/>
+                        </StackPanel>
+                        <StackPanel Style="{DynamicResource spHoriz}">
+                            <Label Content="Последений доктор"/>
+                            <Label Content="{Binding Lastdoc}"/>
+                        </StackPanel>
+                        <StackPanel Style="{DynamicResource spHoriz}">
+                            <Label Content="Диагноз"/>
+                            <Label Content="{Binding Diagnos}"/>
+                        </StackPanel>
+                        <StackPanel Style="{DynamicResource spHoriz}">
+                            <Label Content="Рекомендации"/>
+                            <Label Content="{Binding Recomendation}"/>
+                        </StackPanel>
+                    </StackPanel> 
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</Page>

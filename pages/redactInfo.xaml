@@ -1,0 +1,66 @@
+﻿<Page x:Class="prakt8.pages.redactInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:validators="clr-namespace:prakt8.ValidationRules"
+      xmlns:local="clr-namespace:prakt8.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="redactInfo">
+    <StackPanel x:Name="createsp" Style="{DynamicResource spVert}">
+        <Label Content="Фамилия"/>
+        <TextBox>
+            <TextBox.Text>
+                <Binding Path="Surname" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <validators:StringValidation/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Content="Имя"/>
+        <TextBox>
+            <TextBox.Text>
+                <Binding Path="Name" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <validators:StringValidation/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Content="Отчество"/>
+        <TextBox>
+            <TextBox.Text>
+                <Binding Path="Middlename" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <validators:StringValidation/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Content="Дата рождения"/>
+        <DatePicker>
+            <DatePicker.Text>
+                <Binding Path="Bday" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <validators:DateTimeValidation/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </DatePicker.Text>
+        </DatePicker>
+        <Label Content="Номер телефона"/>
+        <TextBox>
+            <TextBox.Text>
+                <Binding Path="PhoneNumber" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <validators:phoneNumberValidation/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+        <Button Content="Изменить" Click="Button_Click"/>
+        <Button x:Name="exitBtn" Content="Назад" Click="exitBtn_Click"/>
+    </StackPanel>
+</Page>

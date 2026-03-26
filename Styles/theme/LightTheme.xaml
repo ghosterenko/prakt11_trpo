@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="Background" Color="#F5FAFB"/>
+    <SolidColorBrush x:Key="MainPanel" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="Title" Color="#2E3B4E"/>
+    <SolidColorBrush x:Key="Text" Color="#444B54"/>
+    <SolidColorBrush x:Key="Desc" Color="#6E7A89"/>
+    <SolidColorBrush x:Key="Button" Color="#33B8B1"/>
+    <SolidColorBrush x:Key="ResetDeleteButton" Color="#E65A4F"/>
+    <SolidColorBrush x:Key="TextBox" Color="#F0F6F8"/>
+    <SolidColorBrush x:Key="Active" Color="#3A9AD9"/>
+    <SolidColorBrush x:Key="ErrorValidationBackground" Color="#FFE8E8 "/>
+    <SolidColorBrush x:Key="ErrorValidationBorder" Color="#D93025"/>
+
+</ResourceDictionary>

@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="Grid">
+        <Setter Property="Background" Value="{DynamicResource Background}"/>
+    </Style>
+    <Style x:Key="spHoriz" TargetType="StackPanel">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Orientation" Value="Horizontal"/>
+    </Style>
+    <Style x:Key="spVert" TargetType="StackPanel">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Orientation" Value="Vertical"/>
+    </Style>
+    <Style x:Key="sphorzDown" TargetType="StackPanel">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Background" Value="{DynamicResource downblock}"/>
+    </Style>
+
+    <Style x:Key="lv" TargetType="ListView">
+        <Setter Property="Width" Value="400px"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="15"/>
+    </Style>c:\users\st310-05\desktop\prakt10_trpo-main\validationrules\
+
+    <Style x:Key="lvp" TargetType="ListView">
+        <Setter Property="Width" Value="400px"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+        <Setter Property="Background" Value="{DynamicResource TextBox}"/>
+    </Style>
+</ResourceDictionary>
